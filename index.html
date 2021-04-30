@@ -1,61 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
   <title>Home - GMG Wiki</title>
   <link rel="shortcut icon" type="image/png" href="images/favicon2.png";>
 </head>
-<body style="background-color: #A2EAA4;">
+<body>
 
-
-<div class="container-fluid d-flex flex-column px-0 vh-100">
-  <div class="d-flex justify-content-between " id="topbar">
-    <a href="index.html"><img class="item logo p-3" src="images/logo.png" alt="Eagle logo for go mean green"></a>
-    <div class="item mb-1 text-white align-self-center display-4">Go Mean Green Wiki</div>
-    <a href="#"><img class="item logo p-3" src="images/pfp.png" alt="Profile picture"></a>
+  <div class="header">
+    <a href="index.html"><img class="" src="images/logo.png" alt="Eagle logo for go mean green"></a>
+    <div>Go Mean Green Wiki</div>
+    <a href="#"><img class="" src="images/pfp.png" alt="Profile picture"></a>
   </div>
 
-  <nav class="navbar navbar-expand-md sticky-top bg-white">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link current" href="index.html">Home</a>
-      <a class="nav-item nav-link inactive" href="browse.html">Browse</a>
-      <a class="nav-item nav-link inactive" href="popular.html">Popular</a>
-      <a class="nav-item nav-link inactive" href="about.html">About</a>
-    </div>
-    <form class="form-inline ml-auto mr-3" action="search.html" method="GET">
-  <input class="form-control mr-2" type="text" placeholder="Search" name="search" id="searchContent">
-  <button class="btn" type="submit" id="gobutton">Go</button>
-</form>
-  </nav>
+  <ul>
+    <li><a class="active">Home</a></li>
+    <li><a>Browse</a></li>
+    <li><a>Popular</a></li>
+    <li><a>About</a></li>
+    <li><a>Search</a></li>
+  </ul>
 
-  <div class="container d-flex align-items-center justify-content-center flex-grow-1">
-    <div style="height: 80%;">
-      <div class="content mt-2">
-        <h2 class="text-white">What is Go Mean Green Wiki?</h2>
-        <p class="text-white">Go Mean Green Wiki aims to educate our visitors about all the buildings UNT has to offer. This wiki allows you to browse through all buildings currently at UNT, view the top liked buildings, search for a building by name or mnemonic (e.g., BLB), and edit contents of different building pages (users only).</p>
+  <div class="dual-column">
+    <div class="left-column">
+      <div class="container">
+        <h1>What is Go Mean Green Wiki?</h1>
+        <p>Go Mean Green Wiki aims to educate our visitors about all the buildings UNT has to offer. This wiki allows you to browse through all buildings currently at UNT, view the top liked buildings, search for a building by name or mnemonic (e.g., BLB), and edit contents of different building pages (users only).</p>
       </div>
-      <div class="content mt-3 mb-3">
-        <div class="row">
-          <section class="col-5 offset-1"><img class="img-thumbnail" src="images/unt1.jpg" alt="Image of UNT Union"></section>
-          <section class="col-5"><img class="img-thumbnail" src="images/unt2.jpg" alt="Image of UNT"></section>
-        </div>
-        <div class="row mt-3">
-          <section class="col-5 offset-1"><img class="img-thumbnail" src="images/unt3.jpg" alt="Image between student services and library"></section>
-          <section class="col-5"><img class="img-thumbnail" src="images/unt4.jpg" alt="Image of UNT Discovery Park"></section>
-        </div>
+      <div class="container">
+        <h1>Images</h1>
+      </div>
+    </div>
+    <div class="right-column">
+      <div class="container">
+        <h1>Most liked building</h1>
       </div>
     </div>
   </div>
-</div>
 
-
-<script src="js/jquery.slim.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
