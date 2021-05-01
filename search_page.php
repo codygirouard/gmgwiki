@@ -35,25 +35,13 @@
   <div class="dual-column">
     <div class="left-column">
       <div class="container">
-        <h1>What is Go Mean Green Wiki?</h1>
-        <p>Go Mean Green Wiki aims to educate our visitors about all the buildings UNT has to offer. This wiki allows you to browse through all buildings currently at UNT, view the top liked buildings, search for a building by name or mnemonic (e.g., BLB), and edit contents of different building pages (users only).</p>
-      </div>
-      <div class="container">
-        <h1>Around Campus</h1>
-        <div class="image-container">
-          <img src="images/unt1.jpg" alt="UNT University Union">
-          <img src="images/unt2.jpg" alt="Flowers in front of UNT sign">
-          <img src="images/unt3.jpg" alt="UNT Library Mall">
-          <img src="images/unt4.jpg" alt="UNT Discovery Park">
-        </div>
+        <h1>Search results for <?php echo $_GET["search"]; ?></h1>
+        <p>Nothing yet!</p>
       </div>
     </div>
     <div class="right-column">
       <div class="container">
-        <h1>Most Popular Building</h1>
-        <h3>University Union</h3>
-        <p>102 likes!</p>
-        <img src="images/unt1.jpg" alt="UNT University Union">
+        <h1>Most liked building</h1>
       </div>
     </div>
   </div>
