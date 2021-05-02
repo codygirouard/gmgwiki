@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link id="theme" rel="stylesheet" href="css/light.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>Home - GMG Wiki</title>
+  <title>Popular - GMG Wiki</title>
   <link rel="shortcut icon" type="image/png" href="images/favicon.png";>
 </head>
 <body>
@@ -19,9 +19,9 @@
   </div>
 
   <ul>
-    <li class="active"><a href="index.html">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="browse.html">Browse</a></li>
-    <li><a href="popular.html">Popular</a></li>
+    <li class="active"><a href="popular.html">Popular</a></li>
     <li><a href="about.html">About</a></li>
     <li style="float: right;">
       <div class="search-container">
@@ -34,31 +34,15 @@
     <li class="mode-switch"><button id="theme-toggle"><i class="fa fa-lightbulb-o"></i></button></li>
   </ul>
 
-  <div class="dual-column">
-    <div class="left-column">
+  <div class="single-column">
       <div class="container">
-        <h1>What is Go Mean Green Wiki?</h1>
-        <p>Go Mean Green Wiki aims to educate our visitors about all the buildings UNT has to offer and highlight the student favorites.</p>
-        <p>This wiki allows you to browse through all buildings currently at UNT, view the most popular buildings, search for a building by name, and edit contents of different building pages (users only).</p>
+        <h1>Most Liked Buildings</h1>
+        <table class="likes" id="buildings">
+          <tr><th>Building</th><th style="text-align:center;"><i class="fa fa-heart"></i></th></tr>
+          <tr><td>AFRTOC Building</td><td>10</td></tr>
+          <tr><td>AFRTOC Building</td><td>10</td></tr><tr><td>AFRTOC Building</td><td>10</td></tr><tr><td>AFRTOC Building</td><td>10</td></tr>
+        </table>
       </div>
-      <div class="container">
-        <h1>Around Campus</h1>
-        <div class="image-container">
-          <img src="images/unt1.jpg" alt="UNT University Union">
-          <img src="images/unt2.jpg" alt="Flowers in front of UNT sign">
-          <img src="images/unt3.jpg" alt="UNT Library Mall">
-          <img src="images/unt4.jpg" alt="UNT Discovery Park">
-        </div>
-      </div>
-    </div>
-    <div class="right-column">
-      <div class="container" style="text-align: center;">
-        <h1>Most Popular Building</h1>
-        <h3>University Union</h3>
-        <p>102 likes!</p>
-        <img src="images/unt1.jpg" alt="UNT University Union" id="topimg">
-      </div>
-    </div>
   </div>
 
 <script type="text/javascript" src="javascript/main.js"></script>

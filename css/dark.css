@@ -60,6 +60,13 @@ li a:hover {
   border: 1px solid white;
 }
 
+.about a:hover {
+  color: #fff;
+  background-color: #333;
+  border-radius: 5px;
+  border: 3px solid #fff;
+}
+
 #buildings a {
   color: #fff;
 }

@@ -60,6 +60,7 @@ input[type=text]:focus {
   ul li:last-child {float:right; border: none;}
 
   .dual-column {display: flex;}
+  .single-column {width: 83%; margin: 0 auto;}
 
   .left-column {width: 54%; margin-right: 2%;}
   .right-column {width: 27%;}
@@ -118,7 +119,7 @@ input[type=text]:focus {
   font-size: 3em;
 }
 
-.dual-column {
+.dual-column, .single-column {
     justify-content: center;
 }
 
@@ -149,6 +150,16 @@ input[type=text]:focus {
   margin: 0;
 }
 
+.about {
+  text-align: center;
+}
+
+.about a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+}
+
 #topimg {
   height: 300px;
   border-radius: 4px;
@@ -172,6 +183,11 @@ input[type=text]:focus {
 
 #buildings tr {
   scroll-margin-top: 5em;
+}
+
+#buildings td {
+  padding-top: 5px;
+  padding-left: 5px;
 }
 
 #index-div button {
@@ -199,4 +215,13 @@ input[type=text]:focus {
 
 #index-div a {
   color: #000;
+}
+
+#buildings.likes {
+  border-collapse: collapse;
+}
+
+#buildings.likes td:nth-child(2) {
+  border-left: 2px solid white;
+  text-align: center;
 }
