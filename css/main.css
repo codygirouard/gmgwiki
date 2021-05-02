@@ -51,6 +51,7 @@ input[type=text]:focus {
   .dual-column {display:flex;  flex-direction: column-reverse;}
   .left-column {width: 95%; margin: 0 auto;}
   .right-column {width: 95%; margin: 0 auto;}
+  .single-column {width: 95%; margin: 0 auto;}
 
   .image-container img {width: 85%;}
 }
