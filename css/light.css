@@ -1,0 +1,98 @@
+body {
+  background: #a2eaa4;
+}
+
+ul {
+  background-color: #f9f9f9;
+}
+
+li a {
+  color: #a0a0a0 ;
+}
+
+li a:hover {
+  background-color: #a2eaa4 ;
+  color: #fff;
+}
+
+input[type=text] {
+  border: 1px solid #a2eaa4;
+}
+
+input[type=text]:focus {
+  border: 1px solid #20a641;
+}
+
+.search-container button {
+  background: #ddd;
+}
+
+.search-container button:hover {
+  background: #a2eaa4;
+  color: #fff;
+}
+
+.mode-switch button{
+  background: #f9f9f9;
+}
+
+.mode-switch button:hover {
+  background: #a2eaa4;
+  color: #fff;
+}
+
+.header {
+  background-color: #20a641;
+}
+
+.active a {
+  color: #20a641;
+}
+
+.container {
+  color: #fff;
+  background-color: rgba(32, 166, 65, 0.9);
+}
+
+.image-container {
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, .3);
+}
+
+.image-container img {
+  border: 1px solid white;
+}
+
+#buildings a {
+  color: #fff;
+}
+
+#buildings tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, .3);
+}
+
+#buildings td:hover {
+  background-color: rgba(0, 0, 0, .6);
+}
+
+#buildings th {
+  border-bottom: 3px solid white;
+}
+
+#index-div button {
+  background-color: #fff;
+  color: #000;
+}
+
+#index-div button:hover {
+  background-color: rgb(255, 255, 255, 0.1);
+  border: 1px solid #fff;
+}
+
+#index-div button:hover a {
+  color: #fff;
+}
+
+#index-div a {
+  color: #000;
+}

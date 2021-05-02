@@ -1,6 +1,5 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #a2eaa4;
   margin: 0;
 }
 
@@ -21,7 +20,6 @@ ul {
   margin: 0 0 20px 0;
   padding: 0;
   overflow: hidden;
-  background-color: #f9f9f9;
 }
 
 li {
@@ -30,27 +28,19 @@ li {
 
 li a {
   display: block;
-  color: #a0a0a0 ;
   font-size: 1.3em;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
-li a:hover {
-  background-color: #a2eaa4 ;
-  color: #fff;
-}
-
 input[type=text] {
   padding: 6px;
   margin-top: 8px;
   font-size: 1.1em;
-  border: 1px solid #a2eaa4;
 }
 
 input[type=text]:focus {
-  border: 1px solid #20a641;
   outline: none;
 }
 
@@ -90,15 +80,9 @@ input[type=text]:focus {
  margin-top: 8px;
  margin-right: 16px;
  margin-left: 2px;
- background: #ddd;
  font-size: 1.2em;
  border: none;
  cursor: pointer;
-}
-
-.search-container button:hover {
-  background: #a2eaa4;
-  color: #fff;
 }
 
 .filter-container input {
@@ -112,15 +96,9 @@ input[type=text]:focus {
   margin-top: 8px;
   margin-right: 16px;
   margin-left: 1px;
-  background: #f9f9f9;
   font-size: 1.3em;
   border: none;
   cursor: pointer;
-}
-
-.mode-switch button:hover {
-  background: #a2eaa4;
-  color: #fff;
 }
 
 .header {
@@ -129,7 +107,6 @@ input[type=text]:focus {
   align-items: center;
   text-align: center;
   padding: 10px 20px;
-  background-color: #20a641;
 }
 
 .header > a > img {
@@ -141,17 +118,11 @@ input[type=text]:focus {
   font-size: 3em;
 }
 
-.active a {
-  color: #20a641;
-}
-
 .dual-column {
     justify-content: center;
 }
 
 .container {
-  color: #fff;
-  background-color: rgba(32, 166, 65, 0.9);
   padding: 10px 20px 20px 20px;
   border: 1px solid white;
   margin-bottom: 15px;
@@ -163,7 +134,6 @@ input[type=text]:focus {
   margin: 0 10px;
   border: 1px solid white;
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, .3);
 }
 
 .image-container img {
@@ -190,16 +160,7 @@ input[type=text]:focus {
 }
 
 #buildings a {
-  color: #fff;
   font-size: 1.3em;
-}
-
-#buildings tr:nth-child(even) {
-  background-color: rgba(255, 255, 255, .3);
-}
-
-#buildings td:hover {
-  background-color: rgba(0, 0, 0, .6);
 }
 
 #buildings th {

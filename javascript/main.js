@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
   themeToggle.addEventListener('click', () => {
     //if light mode
     if (theme.href.includes('light')) {
-      theme.href = 'css/main_dark.css';
+      theme.href = 'css/dark.css';
     }
     else {
-      theme.href = 'css/main_light.css';
+      theme.href = 'css/light.css';
     }
 
     localStorage.setItem('theme', theme.href);
