@@ -170,6 +170,10 @@ input[type=text]:focus {
   border-bottom: 3px solid white;
 }
 
+#buildings tr {
+  scroll-margin-top: 5em;
+}
+
 #index-div button {
   background-color: #fff;
   border: none;
