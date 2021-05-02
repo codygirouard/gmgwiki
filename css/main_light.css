@@ -8,6 +8,10 @@ p {
   font-size: 1.25em;
 }
 
+a {
+  text-decoration: none;
+}
+
 h3 {
   font-size: 1.4em;
 }
@@ -54,7 +58,7 @@ input[type=text]:focus {
   ul li {float: none;}
   .search-container {text-align: center;}
 
-
+  .dual-column {display:flex;  flex-direction: column-reverse;}
   .left-column {width: 95%; margin: 0 auto;}
   .right-column {width: 95%; margin: 0 auto;}
 
@@ -75,6 +79,10 @@ input[type=text]:focus {
   .search-container button {float: right;}
 
   .image-container img {width: 47%;}
+
+  #filter-div {position: -webkit-sticky; position: sticky; top: 72px;}
+
+  #index-div {position: -webkit-sticky; position: sticky; top: 236px;}
 }
 
 .search-container button {
@@ -91,6 +99,12 @@ input[type=text]:focus {
 .search-container button:hover {
   background: #a2eaa4;
   color: #fff;
+}
+
+.filter-container input {
+  font-size: 1.2em;
+  margin: 0;
+  width: 85%;
 }
 
 .mode-switch button{
@@ -169,4 +183,55 @@ input[type=text]:focus {
   height: 300px;
   border-radius: 4px;
   border: 1px solid white;
+}
+
+#buildings {
+  width: 100%;
+}
+
+#buildings a {
+  color: #fff;
+  font-size: 1.3em;
+}
+
+#buildings tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, .3);
+}
+
+#buildings td:hover {
+  background-color: rgba(0, 0, 0, .6);
+}
+
+#buildings th {
+  text-align: left;
+  font-size: 1.5em;
+  padding-bottom: 5px;
+  border-bottom: 3px solid white;
+}
+
+#index-div button {
+  background-color: #fff;
+  border: none;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  height: 45px;
+  width: 50px;
+  font-size: 1.1em;
+}
+
+#index-div button:hover {
+  background-color: rgb(255, 255, 255, 0.1);
+  border: 1px solid #fff;
+}
+
+#index-div button:hover a {
+  color: #fff;
+}
+
+#index-div a {
+  color: #000;
 }

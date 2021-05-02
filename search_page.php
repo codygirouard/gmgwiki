@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link id="theme" rel="stylesheet" href="css/main_light.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>Search - <?php echo $_GET["search"]; ?></title>
+  <title>Search - '<?php echo $_GET["search"]; ?>'</title>
   <link rel="shortcut icon" type="image/png" href="images/favicon.png";>
 </head>
 <body>
@@ -18,10 +18,10 @@
   </div>
 
   <ul>
-    <li class="active"><a>Home</a></li>
-    <li><a>Browse</a></li>
-    <li><a>Popular</a></li>
-    <li><a>About</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="browse.html">Browse</a></li>
+    <li><a href="#">Popular</a></li>
+    <li><a href="#">About</a></li>
     <li style="float: right;">
       <div class="search-container">
         <form action="/search_page.php" action="get">
@@ -36,7 +36,7 @@
   <div class="dual-column">
     <div class="left-column">
       <div class="container">
-        <h1>Search results for <?php echo $_GET["search"]; ?></h1>
+        <h1>Search results for '<?php echo $_GET["search"]; ?>'</h1>
         <p>Nothing yet!</p>
       </div>
     </div>
