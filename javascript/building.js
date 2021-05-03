@@ -9,9 +9,7 @@ $(document).ready(function(){
       data: {building: buildingName},
 
       success: function (obj, textstatus) {
-                    myVar = String(obj.result);
-                    console.log(obj.result);
-                    $("#search-q").html(myVar);
+                    $("#search-q").html(obj.result);
               }
   });
 });
