@@ -67,6 +67,17 @@ li a:hover {
   border: 3px solid #fff;
 }
 
+.buttons button {
+  border: 1px solid #fff;
+  background-color: #fff;
+  color: #bbb;
+}
+
+.buttons button:hover {
+  color: #0f4c1d;
+  box-shadow: 0 0 16px 10px rgba(255,255,255,0.24), 0 17px 50px 0 rgba(255,255,255,0.19);
+}
+
 #buildings a, #search-buildings a {
   color: #fff;
 }

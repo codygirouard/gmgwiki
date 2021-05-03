@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   themeToggle.addEventListener('click', () => {
-    //if light mode
+    // if light mode
     if (theme.href.includes('light')) {
       theme.href = 'css/dark.css';
     }

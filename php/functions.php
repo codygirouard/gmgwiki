@@ -2,10 +2,10 @@
 
     include('login.php');
 
-    // Create connection
+    // create connection
     $conn = mysqli_connect($Server_Name, $User_Name, $Password);
 
-    // Check connection
+    // check connection
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }
