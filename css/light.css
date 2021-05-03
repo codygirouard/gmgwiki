@@ -70,19 +70,19 @@ input[type=text]:focus {
   border: 3px solid #a2eaa4;
 }
 
-#buildings a {
+#buildings a, #search-buildings a {
   color: #fff;
 }
 
-#buildings tr:nth-child(even) {
+#buildings tr:nth-child(even), #search-buildings tr:nth-child(even) {
   background-color: rgba(255, 255, 255, .3);
 }
 
-#buildings td:hover {
+#buildings td:hover, #search-buildings td:hover {
   background-color: rgba(0, 0, 0, .6);
 }
 
-#buildings th {
+#buildings th, #search-buildings th {
   border-bottom: 3px solid white;
 }
 

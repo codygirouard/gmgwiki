@@ -67,20 +67,20 @@ li a:hover {
   border: 3px solid #fff;
 }
 
-#buildings a {
+#buildings a, #search-buildings a {
   color: #fff;
 }
 
-#buildings tr:nth-child(even) {
+#buildings tr:nth-child(even), #search-buildings tr:nth-child(even) {
   background-color: rgba(255, 255, 255, .2);
 }
 
-#buildings td:hover,  #buildings td:hover a{
+#buildings td:hover, #buildings td:hover a, #search-buildings td:hover, #search-buildings td:hover a {
   background-color: #fff;
   color: #000;
 }
 
-#buildings th {
+#buildings th, #search-buildings th {
   border-bottom: 3px solid white;
 }
 

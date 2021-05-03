@@ -34,17 +34,11 @@
     <li class="mode-switch"><button id="theme-toggle"><i class="fa fa-lightbulb-o"></i></button></li>
   </ul>
 
-  <div class="dual-column">
-    <div class="left-column">
-      <div class="container">
-        <h1>Search results for '<?php echo $_GET["search"]; ?>'</h1>
-        <p>Nothing yet!</p>
-      </div>
-    </div>
-    <div class="right-column">
-      <div class="container">
-        <h1>Most liked building</h1>
-      </div>
+  <div class="single-column">
+    <div class="container">
+      <h1>Search results for '<span id="search-query"><?php echo $_GET["search"]; ?></span>'</h1>
+      <table id="search-buildings">
+      </table>
     </div>
   </div>
 
