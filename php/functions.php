@@ -30,7 +30,6 @@
             $row = mysqli_fetch_assoc($result);
             $aResult['id'] = $row['id'];
             $aResult['name'] = $row['name'];
-            $aResult['likes'] = $row['likes'];
             $aResult['descr'] = $row['descr'];
             $aResult['addr'] = $row['addr'];
             $aResult['printer'] = $row['printer'];
@@ -47,6 +46,33 @@
           }
 
           mysqli_close($conn);
+        }
+      }
+      elseif ( $function == 'getLikes') {
+        include('login.php');
+
+        $dbname = 'gmgWIKI';
+
+        // create connection
+        $conn = mysqli_connect($Server_Name, $User_Name, $Password, $dbname);
+
+        // check connection
+        if (!$conn) {
+          $aResult['error'] = 'Connection failure!';
+          echo json_encode($aResult);
+          die("Connection failed: " . mysqli_connect_error());
+        }
+
+        $sql = "SELECT name, likes FROM Buildings";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+          // output data of each row
+          while($row = mysqli_fetch_assoc($result)) {
+            $aResult[$row['name']] = $row['likes'];
+          }
+        } else {
+          echo "0 results";
         }
       }
       else {

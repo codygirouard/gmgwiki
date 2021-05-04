@@ -9,6 +9,7 @@ $(document).ready(function(){
       data: {function: 'getBuildingInfo', building: buildingName},
 
       success: function (obj, textstatus) {
+                    $(document).prop('title', obj.name + ' - GMG Wiki');
                     $("#building-name").html(obj.name);
                     $("#desc").html(obj.descr);
                     $("#images-name").html('Images of ' + obj.name);
