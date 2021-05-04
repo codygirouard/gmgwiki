@@ -44,6 +44,18 @@ input[type=text]:focus {
   outline: none;
 }
 
+
+
+
+@media screen and (max-width: 1635px) {
+  .image-container img, #google-map {width: 85%;}
+}
+
+@media screen and (min-width: 1635px) {
+  .image-container img, #google-map {width: 47%;}
+}
+
+
 @media screen and (max-width: 850px) {
   ul li {float: none;}
   .search-container {text-align: center;}
@@ -52,8 +64,6 @@ input[type=text]:focus {
   .left-column {width: 95%; margin: 0 auto;}
   .right-column {width: 95%; margin: 0 auto;}
   .single-column {width: 95%; margin: 0 auto;}
-
-  .image-container img {width: 85%;}
 }
 
 @media screen and (min-width: 850px) {
@@ -69,8 +79,6 @@ input[type=text]:focus {
   ul {position: -webkit-sticky; position: sticky; top: 0;}
 
   .search-container button {float: right;}
-
-  .image-container img {width: 47%;}
 
   #filter-div {position: -webkit-sticky; position: sticky; top: 72px;}
 
@@ -142,7 +150,7 @@ input[type=text]:focus {
   border-radius: 4px;
 }
 
-.image-container img {
+.image-container img, #google-map {
   height: 300px;
   border-radius: 4px;
   margin: 10px;
@@ -177,6 +185,14 @@ input[type=text]:focus {
   cursor: pointer;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
+}
+
+.fa-times {
+  color: #ff413d;
+}
+
+.fa-check {
+  color: #22dd22;
 }
 
 #topimg {
@@ -221,6 +237,8 @@ input[type=text]:focus {
   height: 45px;
   width: 50px;
   font-size: 1.1em;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 
 #index-div button:hover {
