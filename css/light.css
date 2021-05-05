@@ -81,6 +81,25 @@ input[type=text]:focus {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+.modal-content {
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+.modal-header {
+  background-color: #20a641;
+  color: white;
+}
+
+.modal-footer {
+  background-color: #20a641;
+  color: white;
+}
+
+#login-button {
+  color: #20a641;
+}
+
 #buildings a, #search-buildings a {
   color: #fff;
 }

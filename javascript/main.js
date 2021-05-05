@@ -81,5 +81,171 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("search-buildings").innerHTML = inHTML;
 
   }
+})
 
+function clearLogin() {
+  $("#username").val('');
+  $("#pwd").val('');
+  $("#user-error").css("display", "none");
+  $("#pass-error").css("display", "none");
+  $("#user-error").html("Incorrect length");
+}
+
+function checkUser(str) {
+  var code, i, len;
+
+  code = str.charCodeAt(0);
+  if (!(code > 64 && code < 91) && !(code > 96 && code < 123)) {
+    return false;
+  }
+
+  for (i = 1, len = str.length; i < len; i++) {
+    code = str.charCodeAt(i);
+    if (!(code > 47 && code < 58) &&
+        !(code > 64 && code < 91) &&
+        !(code > 96 && code < 123)) {
+      return false;
+    }
+  }
+  return true;
+};
+
+$(document).ready(function(){
+  var modal = $("#login");
+  var btn = $("#pfp-button");
+  var exit = $("#close");
+
+  btn.click(function() {
+    modal.css("display", "block");
+  })
+
+  exit.click(function() {
+    modal.css("display", "none");
+    clearLogin();
+  })
+
+  $(window).mousedown(function(e) {
+    if (e.target.id == 'login') {
+      modal.css("display", "none");
+      clearLogin();
+    }
+  })
+
+  var user = $("#username");
+  var pwd = $("#pwd");
+  var loginbtn = $("#login-button");
+
+  loginbtn.click(function() {
+    var pass = pwd.val();
+    var username = user.val();
+
+    if (pass.length >= 6 && username.length >= 2) {
+      if (checkUser(username)) {
+        $("#user-error").css("display", "none");
+        $("#pass-error").css("display", "none");
+
+        $.ajax({
+            type: "POST",
+            url: 'php/functions.php',
+            dataType: 'json',
+            data: {function: 'login', user: username, pwd: pass},
+
+            success: function (obj, textstatus) {
+                          $(document).prop('title', obj.name + ' - GMG Wiki');
+                          $("#building-name").html(obj.name);
+                          $("#desc").html(obj.descr);
+                          $("#images-name").html('Images of ' + obj.name);
+                          $("#address").html(obj.addr);
+                          $("#prim-use").html(obj.prim);
+                          $("#academic").html(obj.academic);
+
+                          obj.eagle = obj.eagle.replace(/,/g, ", ");
+                          obj.fs = obj.fs.replace(/,/g, ", ");
+                          obj.fcs = obj.fcs.replace(/,/g, ", ");
+                          obj.rr = obj.rr.replace(/,/g, ", ");
+                          obj.r = obj.r.replace(/,/g, ", ");
+                          obj.ar = obj.ar.replace(/,/g, ", ");
+
+                          if (obj.eagle == 'None') {
+                            $("#eagle").html('<i class="fa fa-times""></i>');
+                          } else {
+                            $("#eagle").html(obj.eagle);
+                          }
+                          if (obj.fs == 'None') {
+                            $("#fs").html('<i class="fa fa-times""></i>');
+                          } else {
+                            $("#fs").html(obj.fs);
+                          }
+                          if (obj.fcs == 'None') {
+                            $("#fcs").html('<i class="fa fa-times""></i>');
+                          } else {
+                            $("#fcs").html(obj.fcs);
+                          }
+                          if (obj.rr == 'None') {
+                            $("#rr").html('<i class="fa fa-times""></i>');
+                          } else {
+                            $("#rr").html(obj.rr);
+                          }
+                          if (obj.r == 'None') {
+                            $("#r").html('<i class="fa fa-times""></i>');
+                          } else {
+                            $("#r").html(obj.r);
+                          }
+                          if (obj.ar == 'None') {
+                            $("#ar").html('<i class="fa fa-times""></i>');
+                          } else {
+                            $("#ar").html(obj.ar);
+                          }
+
+                          if (obj.printer == 1) {
+                            $("#printers").removeClass('fa-times');
+                            $("#printers").addClass('fa-check');
+                          }
+                          if (obj.tutor == 1) {
+                            $("#tutoring").removeClass('fa-times');
+                            $("#tutoring").addClass('fa-check');
+                          }
+
+                          $("#img1").attr("src", "images/" + obj.id + "1.jpg");
+                          $("#img2").attr("src", "images/" + obj.id + "2.jpg");
+                          $("#img3").attr("src", "images/" + obj.id + "3.jpg");
+
+                          $("#img1").attr("alt", "Picture of " + obj.name);
+                          $("#img2").attr("alt", "Picture of " + obj.name);
+                          $("#img3").attr("alt", "Picture of " + obj.name);
+
+                          $("#google-map").attr('src', obj.google);
+                    }
+        });
+
+      }
+      else {
+        $("#user-error").html("Only letters/numbers, first character has to be letter");
+        $("#user-error").css("display", "table-cell");
+      }
+    }
+    else {
+      if (pass.length < 6)
+      {
+        $("#pass-error").css("display", "table-cell");
+      }
+      else {
+        $("#pass-error").css("display", "none");
+      }
+      if (username.length < 2) {
+        $("#user-error").html("Incorrect length");
+        $("#user-error").css("display", "table-cell");
+      }
+      else {
+        if (checkUser(username)) {
+          $("#user-error").css("display", "none");
+        }
+        else {
+          $("#user-error").html("Only letters/numbers, first character has to be letter");
+          $("#user-error").css("display", "table-cell");
+        }
+      }
+    }
+
+  })
 })

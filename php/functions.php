@@ -2,7 +2,12 @@
     $aResult = array();
 
     if( !isset($_GET['function']) ) {
-      $aResult['error'] = 'No function!';
+      if (!isset($_POST['function'])) {
+        $aResult['error'] = 'No function!';
+      }
+      else {
+        
+      }
     } else {
       $function = $_GET['function'];
       if( $function == 'getBuildingInfo' ) {

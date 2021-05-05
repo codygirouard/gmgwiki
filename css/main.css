@@ -34,18 +34,11 @@ li a {
   text-decoration: none;
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
   padding: 6px;
   margin-top: 8px;
   font-size: 1.1em;
 }
-
-input[type=text]:focus {
-  outline: none;
-}
-
-
-
 
 @media screen and (max-width: 1635px) {
   .image-container img, #google-map {width: 85%;}
@@ -64,6 +57,8 @@ input[type=text]:focus {
   .left-column {width: 95%; margin: 0 auto;}
   .right-column {width: 95%; margin: 0 auto;}
   .single-column {width: 95%; margin: 0 auto;}
+
+  .modal-content {width: 80%;}
 }
 
 @media screen and (min-width: 850px) {
@@ -83,6 +78,8 @@ input[type=text]:focus {
   #filter-div {position: -webkit-sticky; position: sticky; top: 72px;}
 
   #index-div {position: -webkit-sticky; position: sticky; top: 236px;}
+
+  .modal-content {width: 40%;}
 }
 
 .search-container button {
@@ -123,8 +120,17 @@ input[type=text]:focus {
   padding: 10px 20px;
 }
 
-.header > a > img {
+.header > a > img, .header > button > img {
   width: 75px;
+}
+
+.header > button {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
 }
 
 .header > div {
@@ -171,6 +177,8 @@ input[type=text]:focus {
   text-decoration: none;
   color: #fff;
   padding: 10px;
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
 }
 
 .buttons {
@@ -193,6 +201,87 @@ input[type=text]:focus {
 
 .fa-check {
   color: #22dd22;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+.form {
+  display: table;
+  width: 100%;
+}
+
+.row {
+  display: table-row;
+}
+
+.row > label {
+  font-size: 1.3em;
+  display: table-cell;
+  width: 15%;
+}
+
+.row > input {
+  display: table-cell;
+  width: 85%;
+  margin-left: 20px;
+}
+
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+#close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#close:hover, #close:focus {
+  color: #ff413d;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+}
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  padding: 2px 16px;
 }
 
 #topimg {
@@ -261,4 +350,8 @@ input[type=text]:focus {
 #buildings.likes td:nth-child(2) {
   border-left: 2px solid white;
   text-align: center;
+}
+
+#username, #pwd {
+  border: 1px solid black;
 }
