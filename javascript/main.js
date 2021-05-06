@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     // stop checking for new input when user left input box
-    filter.addEventListener('focusout', () =>
+    filter.addEventListener('focusout', () => {
       clearInterval(interval);
     })
   }
