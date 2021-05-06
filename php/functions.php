@@ -149,6 +149,37 @@
           $aResult['error'] = '0 buildings found';
         }
       }
+      elseif ( $function == 'getTopBuilding') {
+        // mysql login info
+        include('login.php');
+
+        $dbname = 'gmgWIKI';
+
+        // create connection
+        $conn = mysqli_connect($Server_Name, $User_Name, $Password, $dbname);
+
+        // check connection
+        if (!$conn) {
+          $aResult['error'] = 'Connection failure!';
+          echo json_encode($aResult);
+          die("Connection failed: " . mysqli_connect_error());
+        }
+
+        // get all data for building
+        $sql = "SELECT id, name, likes FROM Buildings ORDER BY likes DESC LIMIT 1";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+          // building found
+          $row = mysqli_fetch_assoc($result);
+          // return building info
+          $aResult['img'] = $row['id'];
+          $aResult['name'] = $row['name'];
+          $aResult['likes'] = $row['likes'];
+        }
+
+        mysqli_close($conn);
+      }
       else {
         // no get request function
         $aResult['result'] = 'Error function not found!';

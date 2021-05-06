@@ -144,7 +144,30 @@ $(document).ready(function(){
   var btn = $("#pfp-button");
   var exit = $("#close");
   var logout = $("#logout");
+  var topname = $("#topname");
+  var toplikes = $("#toplikes");
+  var topimg = $("#topimg");
   var storedUser = localStorage.getItem('user');
+
+  if (topname.length != 0) {
+    // page is index.html
+
+    $.ajax({
+      // send get request for top building
+      type: "GET",
+      url: 'php/functions.php',
+      dataType: 'json',
+      // getTopBuilding();
+      data: {function: 'getTopBuilding'},
+
+      success: function (obj, textstatus) {
+        topname.html(obj.name);
+        toplikes.html(obj.likes + ' likes!');
+        topimg.attr("src", "images/" + obj.img + "1.jpg");
+        topimg.attr("alt", "Picture of " + obj.name);
+      }
+    });
+  }
 
   // if user is logged in, color in the profile pic
   if (storedUser && storedUser.length > 2) {
