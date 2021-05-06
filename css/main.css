@@ -120,11 +120,11 @@ input[type=text], input[type=password] {
   padding: 10px 20px;
 }
 
-.header > a > img, .header > button > img {
+.header > a > img, .header > div > button > img {
   width: 75px;
 }
 
-.header > button {
+.header > div > button {
   background-color: Transparent;
   background-repeat: no-repeat;
   border: none;
@@ -259,6 +259,49 @@ input[type=text], input[type=password] {
   to {top:0; opacity:1}
 }
 
+.modal-header {
+  padding: 2px 16px;
+}
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  top: 80px;
+  left: -30px;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  overflow: auto;
+  box-shadow: 0px 8px 20px 8px rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  font-size: .5em;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+#pfp-img {
+  color: white;
+}
+
 #close {
   color: white;
   float: right;
@@ -270,18 +313,6 @@ input[type=text], input[type=password] {
   color: #ff413d;
   text-decoration: none;
   cursor: pointer;
-}
-
-.modal-header {
-  padding: 2px 16px;
-}
-
-.modal-body {
-  padding: 2px 16px;
-}
-
-.modal-footer {
-  padding: 2px 16px;
 }
 
 #topimg {

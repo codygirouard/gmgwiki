@@ -9,15 +9,60 @@
   <link rel="stylesheet" href="css/main.css">
   <link id="theme" rel="stylesheet" href="css/light.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <title>Browse - GMG Wiki</title>
   <link rel="shortcut icon" type="image/png" href="images/favicon.png";>
 </head>
 <body>
 
   <div class="header">
-    <a href="index.html"><img class="" src="images/logo.png" alt="Eagle logo for go mean green"></a>
+    <a href="index.html"><img src="images/logo.png" alt="Eagle logo for go mean green"></a>
     <div>Go Mean Green Wiki</div>
-    <a href="#"><img class="" src="images/pfp.png" alt="Profile picture"></a>
+    <div class="dropdown">
+      <button id="pfp-button"><i class="fa fa-user fa-5x" id="pfp-img"></i></button>
+      <div class="dropdown-content" id="loginDrop">
+        <a id="logout" style="color: red;">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="login">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <span id="close">&times;</span>
+        <h2>Account Login (and Signup)</h2>
+      </div>
+
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <span style="display: table-cell;"></span>
+            <div style="display: none; color: red; padding-left: 20px; padding-top: 10px;" id="user-error">At least 2 characters!</div>
+          </div>
+          <div class="row">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Username (length >= 2)"><br><br>
+          </div>
+
+          <div class="row">
+            <span style="display: table-cell;"></span>
+            <div style="display: none; color: red; padding-left: 20px; padding-top: 10px;" id="pass-error">At least 6 characters!</div>
+          </div>
+          <div class="row">
+            <label for="pwd">Password</label>
+            <input type="password" id="pwd" name="pwd" placeholder="Password (length >= 6)"><br><br>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <div class="buttons">
+          <button id="login-button">Login</button>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <ul>

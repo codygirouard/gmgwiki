@@ -16,9 +16,14 @@
 <body>
 
   <div class="header">
-    <a href="index.html"><img class="" src="images/logo.png" alt="Eagle logo for go mean green"></a>
+    <a href="index.html"><img src="images/logo.png" alt="Eagle logo for go mean green"></a>
     <div>Go Mean Green Wiki</div>
-    <button id="pfp-button"><img class="" src="images/pfp.png" alt="Profile picture"></button>
+    <div class="dropdown">
+      <button id="pfp-button"><i class="fa fa-user fa-5x" id="pfp-img"></i></button>
+      <div class="dropdown-content" id="loginDrop">
+        <a id="logout" style="color: red;">Logout</a>
+      </div>
+    </div>
   </div>
 
   <div class="modal" id="login">
@@ -33,7 +38,7 @@
         <form>
           <div class="row">
             <span style="display: table-cell;"></span>
-            <div style="display: none; color: red; padding-left: 20px; padding-top: 10px;" id="user-error">Incorrect length</div>
+            <div style="display: none; color: red; padding-left: 20px; padding-top: 10px;" id="user-error">At least 2 characters!</div>
           </div>
           <div class="row">
             <label for="username">Username</label>
@@ -42,7 +47,7 @@
 
           <div class="row">
             <span style="display: table-cell;"></span>
-            <div style="display: none; color: red; padding-left: 20px; padding-top: 10px;" id="pass-error">Incorrect length</div>
+            <div style="display: none; color: red; padding-left: 20px; padding-top: 10px;" id="pass-error">At least 6 characters!</div>
           </div>
           <div class="row">
             <label for="pwd">Password</label>
@@ -81,7 +86,7 @@
       <div class="container">
         <h1>What is Go Mean Green Wiki?</h1>
         <p>Go Mean Green Wiki aims to educate our visitors about all the buildings UNT has to offer and highlight the student favorites.</p>
-        <p>This wiki allows you to browse through all buildings currently at UNT, view the most popular buildings, search for a building by name, and edit contents of different building pages (users only).</p>
+        <p>This wiki allows you to browse through all buildings currently at UNT, view the most popular buildings, search for a building by name, and like different building pages (users only).</p>
       </div>
       <div class="container">
         <h1>Around Campus</h1>

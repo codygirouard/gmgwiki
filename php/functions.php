@@ -6,7 +6,54 @@
         $aResult['error'] = 'No function!';
       }
       else {
-        
+        $function = $_POST['function'];
+        if ($function == 'login') {
+          $user = $_POST['user'];
+          $pwd = $_POST['pwd'];
+
+          $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
+
+          include('login.php');
+
+          $dbname = 'gmgWIKI';
+
+          // create connection
+          $conn = mysqli_connect($Server_Name, $User_Name, $Password, $dbname);
+
+          // check connection
+          if (!$conn) {
+            $aResult['error'] = 'Connection failure!';
+            echo json_encode($aResult);
+            die("Connection failed: " . mysqli_connect_error());
+          }
+
+          $sql = "SELECT hash FROM Users WHERE username = '" . $user . "'";
+          $result = mysqli_query($conn, $sql);
+
+          if (mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+              if (password_verify($pwd, $row['hash'])) {
+                $aResult['user'] = $user;
+              }
+              else {
+                $aResult['error'] = 'Incorrect Password!';
+              }
+            }
+          } else {
+            // username not found
+            $sql = "INSERT INTO Users VALUES ('" . $user . "', '" . $hashed_pwd . "')";
+
+            if (mysqli_query($conn, $sql)) {
+              $aResult['new'] = 'new';
+              $aResult['user'] = $user;
+            } else {
+              $aResult['error'] = "Couldn't create user";
+            }
+          }
+        }
+        else {
+          $aResult['error'] = 'Function not found!';
+        }
       }
     } else {
       $function = $_GET['function'];
@@ -72,7 +119,6 @@
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
-          // output data of each row
           while($row = mysqli_fetch_assoc($result)) {
             $aResult[$row['name']] = $row['likes'];
           }
