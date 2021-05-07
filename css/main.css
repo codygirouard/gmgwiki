@@ -40,6 +40,15 @@ input[type=text], input[type=password] {
   font-size: 1.1em;
 }
 
+textarea {
+  display: block;
+  resize: none;
+  width: 95%;
+  margin: 20px auto;
+  font-size: 1.5em;
+  border: 1px solid white;
+}
+
 @media screen and (max-width: 1635px) {
   .image-container img, #google-map {width: 85%;}
 }
@@ -298,6 +307,21 @@ input[type=text], input[type=password] {
 
 .dropdown a:hover {background-color: #ddd;}
 
+.fa-heart {
+  color: #FBFB3C;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #000;
+}
+
+.container.comments {
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+.upper {
+  text-transform: capitalize;
+}
+
 #pfp-img {
   color: white;
 }
@@ -385,4 +409,16 @@ input[type=text], input[type=password] {
 
 #username, #pwd {
   border: 1px solid black;
+}
+
+#comment-container > :last-child {
+  margin-bottom: 0;
+}
+
+#comment-container {
+  padding: 20px;
+}
+
+#submit-button {
+  margin: 0;
 }

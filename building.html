@@ -88,7 +88,7 @@
         <h1 id="building-name"></h1>
         <p id="desc"></p>
         <div class="buttons">
-          <button><i class="fa fa-heart-o"></i></button>
+          <button id="like-button"><i class="fa fa-heart-o"></i></button>
         </div>
       </div>
       <div class="container">
@@ -98,6 +98,20 @@
           <img src="" alt="" id="img2">
           <img src="" alt="" id="img3">
           <iframe src="" allowfullscreen="" loading="lazy" id="google-map"></iframe>
+        </div>
+      </div>
+      <div class="container">
+        <h1>Comments</h1>
+
+        <div class="container comments" id="comment-container">
+          <h2 style="margin: auto;">No comments yet!</h2>
+        </div>
+
+        <div class="container comments" style="padding: 0;">
+          <textarea name="comment-box" rows="4" placeholder="Remember, be nice!" id="comment-box"></textarea>
+          <div class="buttons" style="width: calc(95% + 3px); margin: 20px auto;">
+            <button id="submit-button">Submit</button>
+          </div>
         </div>
       </div>
     </div>

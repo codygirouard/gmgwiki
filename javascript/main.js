@@ -180,6 +180,7 @@ $(document).ready(function(){
     if (!storedUser || storedUser.length < 2) {
       // if no one is logged in, show login modal
       modal.css("display", "block");
+      $("#username").focus();
     } else {
       // someone is logged in, give option to logout
       if ($("#loginDrop").is(":hidden")) {
@@ -224,7 +225,7 @@ $(document).ready(function(){
   // user tries to login
   loginbtn.click(function() {
     var pass = pwd.val();
-    var username = user.val();
+    var username = user.val().toLowerCase();
 
     if (pass.length >= 6 && username.length >= 2) {
       // length requirements fulfilled
@@ -275,6 +276,30 @@ $(document).ready(function(){
                   modal.css("display", "none");
                   clearLogin();
                 }, 1000);
+              }
+
+              // if on building page, check if user has liked the page
+              var likeBtn = $("#like-button");
+              if (likeBtn.length != 0) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const buildingName = urlParams.get('name');
+                var storedUser = localStorage.getItem('user');
+
+                // check if user liked the page
+                $.ajax({
+                  type: "GET",
+                  url: 'php/functions.php',
+                  dataType: 'json',
+                  // isLiked(user, building);
+                  data: {function: 'isLiked', user: storedUser, building: buildingName},
+
+                  success: function (obj, textstatus) {
+                    if (obj.isLiked) {
+                      // user liked this page already
+                      likeBtn.html('<i class="fa fa-heart"></i>');
+                    }
+                  }
+                });
               }
             }
           }

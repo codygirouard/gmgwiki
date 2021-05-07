@@ -93,6 +93,11 @@ li a:hover {
   color: white;
 }
 
+.container.comments {
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, .5);
+}
+
 #login-button {
   color: #0f4c1d;
 }

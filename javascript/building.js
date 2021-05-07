@@ -85,6 +85,131 @@ $(document).ready(function(){
 
       // load google maps of building location
       $("#google-map").attr('src', obj.google);
+
+      // load comments
+      if (!obj.nocomments) {
+        // page has comments
+        var comments = $("#comment-container");
+        var inHTML = "";
+        var i = 0;
+        while(obj[i]) {
+          // add comments to comment container
+          var user = obj[i].split("~;~")[0];
+          var comment = obj[i].split("~;~")[1];
+          inHTML = inHTML + '<div class="container comments"><h2 class="upper">' + user + ':</h2><p>' + comment + '</p></div>';
+          i = i + 1;
+        }
+        comments.html(inHTML);
+      }
     }
   });
+
+  var likeBtn = $("#like-button");
+  var liked = false;
+  var storedUser = localStorage.getItem('user');
+
+  // check if user liked the page
+  $.ajax({
+    type: "GET",
+    url: 'php/functions.php',
+    dataType: 'json',
+    // isLiked(user, building);
+    data: {function: 'isLiked', user: storedUser, building: buildingName},
+
+    success: function (obj, textstatus) {
+      if (obj.isLiked) {
+        // user liked this page already
+        likeBtn.html('<i class="fa fa-heart"></i>');
+        liked = true;
+      }
+    }
+  });
+
+  likeBtn.click(function() {
+    storedUser = localStorage.getItem('user');
+
+    if (!storedUser || storedUser.length < 2) {
+      // user is not logged in
+      alert('Login to like building pages!');
+    } else {
+      // user is logged in
+      if (liked) {
+        // unlike the page
+        $.ajax({
+          type: "POST",
+          url: 'php/functions.php',
+          dataType: 'json',
+          // like(user, building);
+          data: {function: 'unlike', user: storedUser, building: buildingName},
+
+          success: function (obj, textstatus) {
+            if (obj.success) {
+              // user liked this page already
+              likeBtn.html('<i class="fa fa-heart-o"></i>');
+              liked = false;
+            } else {
+              alert('Failed to unlike page.\nTry again later.');
+            }
+          }
+        });
+      } else {
+        // like the page
+        $.ajax({
+          type: "POST",
+          url: 'php/functions.php',
+          dataType: 'json',
+          // like(user, building);
+          data: {function: 'like', user: storedUser, building: buildingName},
+
+          success: function (obj, textstatus) {
+            if (obj.success) {
+              // user liked this page already
+              likeBtn.html('<i class="fa fa-heart"></i>');
+              liked = true;
+            } else {
+              alert('Failed to like page.\nTry again later.');
+            }
+          }
+        });
+      }
+    }
+  })
+
+  $("#submit-button").click(function() {
+    storedUser = localStorage.getItem('user');
+
+    if (!storedUser || storedUser.length < 2) {
+      // user is not logged in
+      alert('Login to comment on building pages!');
+    } else {
+      // user is logged in
+      var comment = $.trim($("#comment-box").val());
+
+      $.ajax({
+        type: "POST",
+        url: 'php/functions.php',
+        dataType: 'json',
+        // comment(user, building, text);
+        data: {function: 'comment', user: storedUser, building: buildingName, comment: comment},
+
+        success: function (obj, textstatus) {
+          if (obj.success) {
+            // comment posted
+            var comments = $("#comment-container");
+            if (comments.html().includes('No comments yet!')) {
+              comments.html('<div class="container comments"><h2 class="upper">' + storedUser + ':</h2><p>' + comment + '</p></div>');
+            } else {
+              comments.html(comments.html() + '<div class="container comments"><h2 class="upper">' + storedUser + ':</h2><p>' + comment + '</p></div>');
+            }
+
+            $("#comment-box").val('');
+          } else {
+            // comment failed to post
+            alert('Failed to comment on page.\nTry again later.');
+          }
+        }
+      });
+    }
+  })
+
 });

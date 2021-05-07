@@ -16,7 +16,7 @@ $(document).ready(function(){
       success: function (obj, textstatus) {
         var i, inHTML;
 
-        inHTML = "<tr><th>Building</th><th style='text-align:center;'><i class='fa fa-heart'></i></th></tr>";
+        inHTML = "<tr><th>Building</th><th style='text-align:center;'><i class='fa fa-heart-o'></i></th></tr>";
         for (i = 0; i < buildingArr.length; i++) {
           // insert names into table, obj holds buildings likes (obj[buildingName] = numLikes)
           inHTML += "<tr><td><a href='building.html?name=" + links[i] + "'>" + buildingArr[i] + "</a></td><td>" + obj[buildingArr[i]] + "</td></tr>";
