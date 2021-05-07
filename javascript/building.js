@@ -24,44 +24,21 @@ $(document).ready(function(){
       $("#prim-use").html(obj.prim);
       $("#academic").html(obj.academic);
 
-      // put spacing in between numbers (1,2,3,4 -> 1, 2, 3, 4)
-      obj.eagle = obj.eagle.replace(/,/g, ", ");
-      obj.fs = obj.fs.replace(/,/g, ", ");
-      obj.fcs = obj.fcs.replace(/,/g, ", ");
-      obj.rr = obj.rr.replace(/,/g, ", ");
-      obj.r = obj.r.replace(/,/g, ", ");
-      obj.ar = obj.ar.replace(/,/g, ", ");
+      var lots = ['eagle', 'fs', 'fcs', 'rr', 'r', 'ar'];
+      var l = 0;
 
-      // if no parking spots, html changed to an X
-      if (obj.eagle == 'None') {
-        $("#eagle").html('<i class="fa fa-times""></i>');
-      } else {
-        $("#eagle").html(obj.eagle);
-      }
-      if (obj.fs == 'None') {
-        $("#fs").html('<i class="fa fa-times""></i>');
-      } else {
-        $("#fs").html(obj.fs);
-      }
-      if (obj.fcs == 'None') {
-        $("#fcs").html('<i class="fa fa-times""></i>');
-      } else {
-        $("#fcs").html(obj.fcs);
-      }
-      if (obj.rr == 'None') {
-        $("#rr").html('<i class="fa fa-times""></i>');
-      } else {
-        $("#rr").html(obj.rr);
-      }
-      if (obj.r == 'None') {
-        $("#r").html('<i class="fa fa-times""></i>');
-      } else {
-        $("#r").html(obj.r);
-      }
-      if (obj.ar == 'None') {
-        $("#ar").html('<i class="fa fa-times""></i>');
-      } else {
-        $("#ar").html(obj.ar);
+      // load parking lot values
+      for (l = 0; l < lots.length; l++) {
+        var lot = lots[l];
+
+        // put spacing in between numbers (1,2,3,4 -> 1, 2, 3, 4)
+        obj[lot] = obj[lot].replace(/,/g, ", ");
+        if (obj[lot] == 'None') {
+          // if no parking spots, html change to an X
+          $("#" + lot).html('<i class="fa fa-times""></i>');
+        } else {
+          $("#" + lot).html(obj[lot]);
+        }
       }
 
       // check if building has printers/tutors; true = check, false = X
