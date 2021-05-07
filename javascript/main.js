@@ -138,6 +138,11 @@ function checkUser(str) {
   return true;
 };
 
+// click to go to most liked building page
+function topLikedClicked(e) {
+  window.location.href = "https://gmgwiki.coudei.me/building.html?name=" + e.data.id;
+}
+
 // jQuery on page load
 $(document).ready(function(){
   var modal = $("#login");
@@ -165,6 +170,8 @@ $(document).ready(function(){
         toplikes.html(obj.likes + ' likes!');
         topimg.attr("src", "images/" + obj.img + "1.jpg");
         topimg.attr("alt", "Picture of " + obj.name);
+
+        $("#topbuilding").click({id: obj.img}, topLikedClicked);
       }
     });
   }
@@ -204,6 +211,7 @@ $(document).ready(function(){
     localStorage.setItem('user', '');
     $("#pfp-img").css("color", "white");
     $("#loginDrop").hide(100);
+    location.reload();
   })
 
   // window has been clicked
