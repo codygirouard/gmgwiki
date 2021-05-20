@@ -34,12 +34,14 @@
           }
 
           // take hash for selected username
-          $sql = "SELECT hash FROM Users WHERE username = '{$user}'";
-          $result = mysqli_query($conn, $sql);
+          $sql = mysqli_prepare($conn, "SELECT hash FROM Users WHERE username=?");
+          mysqli_stmt_bind_param($sql, "s", $user);
+          mysqli_stmt_execute($sql);
+          $result = mysqli_stmt_get_result($sql);
 
           if (mysqli_num_rows($result) > 0) {
             // username found
-            $row = mysqli_fetch_assoc($result);
+            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             if (password_verify($pwd, $row['hash'])) {
               // user password matches input password
               $aResult['user'] = $user;
@@ -52,16 +54,13 @@
             // username not found
 
             // try to create new user with password
-            $sql = "INSERT INTO Users VALUES ('{$user}', '{$hashed_pwd}')";
+            $sql = mysqli_prepare($conn, "INSERT INTO Users VALUES (?, ?)");
+            mysqli_stmt_bind_param($sql, "ss", $user, $hashed_pwd);
+            mysqli_stmt_execute($sql);
 
-            if (mysqli_query($conn, $sql)) {
-              // user created
-              $aResult['new'] = 'new';
-              $aResult['user'] = $user;
-            } else {
-              // failed to create user
-              $aResult['error'] = "Couldn't create user";
-            }
+            // user created
+            $aResult['new'] = 'new';
+            $aResult['user'] = $user;
           }
         }
         elseif ($function == 'like') {
@@ -84,19 +83,24 @@
             die("Connection failed: " . mysqli_connect_error());
           }
 
-          $sql = "SELECT * FROM LikesComments WHERE liked=1 AND user='{$user}' AND building='{$building}'";
-          $result = mysqli_query($conn, $sql);
+          $sql = mysqli_prepare($conn, "SELECT * FROM LikesComments WHERE liked=1 AND user=? AND building=?");
+          mysqli_stmt_bind_param($sql, "ss", $user, $building);
+          mysqli_stmt_execute($sql);
+          $result = mysqli_stmt_get_result($sql);
+
           if (mysqli_num_rows($result) > 0) {
             // user has already liked this building
             $aResult['error'] = 'true';
           } else {
             // user hasn't liked this building
-            $sql = "INSERT INTO LikesComments (liked, user, building) VALUES (1, '{$user}', '{$building}')";
+            $sql = mysqli_prepare($conn, "INSERT INTO LikesComments (liked, user, building) VALUES (1, ?, ?)");
+            mysqli_stmt_bind_param($sql, "ss", $user, $building);
 
-            if (mysqli_query($conn, $sql)) {
+            if (mysqli_stmt_execute($sql)) {
               // insert success
-              $sql = "UPDATE Buildings SET likes = likes + 1 WHERE id = '{$building}'";
-              mysqli_query($conn, $sql);
+              $sql = mysqli_prepare($conn, "UPDATE Buildings SET likes = likes + 1 WHERE id=?");
+              mysqli_stmt_bind_param($sql, "s", $building);
+              mysqli_stmt_execute($sql);
               $aResult['success'] = 'true';
             } else {
               // insert failure
@@ -125,8 +129,10 @@
             die("Connection failed: " . mysqli_connect_error());
           }
 
-          $sql = "INSERT INTO LikesComments (liked, user, building, comment) VALUES (0, '{$user}', '{$building}', '{$comment}')";
-          if (mysqli_query($conn, $sql)) {
+          $sql = mysqli_prepare($conn, "INSERT INTO LikesComments (liked, user, building, comment) VALUES (0, ?, ?, ?)");
+          mysqli_stmt_bind_param($sql, "sss", $user, $building, $comment);
+
+          if (mysqli_stmt_execute($sql)) {
             // insert success
             $aResult['success'] = 'true';
           } else {
@@ -154,10 +160,13 @@
             die("Connection failed: " . mysqli_connect_error());
           }
 
-          $sql = "DELETE FROM LikesComments WHERE liked=1 AND user='{$user}' AND building='{$building}'";
-          if (mysqli_query($conn, $sql)) {
-            $sql = "UPDATE Buildings SET likes = likes - 1 WHERE id = '{$building}'";
-            mysqli_query($conn, $sql);
+          $sql = mysqli_prepare($conn, "DELETE FROM LikesComments WHERE liked=1 AND user=? AND building=?");
+          mysqli_stmt_bind_param($sql, "ss", $user, $building);
+
+          if (mysqli_stmt_execute($sql)) {
+            $sql = mysqli_prepare($conn, "UPDATE Buildings SET likes = likes - 1 WHERE id =?");
+            mysqli_stmt_bind_param($sql, "s", $building);
+            mysqli_stmt_execute($sql);
             $aResult['success'] = 'true';
           } else {
             $aResult['error'] = 'true';
@@ -194,12 +203,14 @@
           $building = $_GET['building'];
 
           // get all data for building
-          $sql = "SELECT * FROM Buildings WHERE id = '{$building}'";
-          $result = mysqli_query($conn, $sql);
+          $sql = mysqli_prepare($conn, "SELECT * FROM Buildings WHERE id=?");
+          mysqli_stmt_bind_param($sql, "s", $building);
+          mysqli_stmt_execute($sql);
+          $result = mysqli_stmt_get_result($sql);
 
           if (mysqli_num_rows($result) > 0) {
             // building name found
-            $row = mysqli_fetch_assoc($result);
+            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             // return all building info
             $aResult['id'] = $row['id'];
             $aResult['name'] = $row['name'];
@@ -219,12 +230,14 @@
           }
 
           // get comments
-          $sql = "SELECT user, comment FROM LikesComments WHERE liked=0 AND building='{$building}'";
-          $result = mysqli_query($conn, $sql);
+          $sql = mysqli_prepare($conn, "SELECT user, comment FROM LikesComments WHERE liked=0 AND building=?");
+          mysqli_stmt_bind_param($sql, "s", $building);
+          mysqli_stmt_execute($sql);
+          $result = mysqli_stmt_get_result($sql);
           $i = 0;
           if (mysqli_num_rows($result) > 0) {
             // page has comments
-            while($row = mysqli_fetch_assoc($result)) {
+            while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
               $aResult[$i] = $row['user'] . "~;~" . $row['comment'];
               $i = $i + 1;
             }
@@ -326,7 +339,10 @@
 
           // get all data for building
           $sql = "SELECT * FROM LikesComments WHERE liked=true AND user='{$user}' AND building='{$building}'";
-          $result = mysqli_query($conn, $sql);
+          $sql = mysqli_prepare($conn, "SELECT * FROM LikesComments WHERE liked=true AND user=? AND building=?");
+          mysqli_stmt_bind_param($sql, "ss", $user, $building);
+          mysqli_stmt_execute($sql);
+          $result = mysqli_stmt_get_result($sql);
 
           $aResult['isLiked'] = mysqli_num_rows($result) > 0;
 
