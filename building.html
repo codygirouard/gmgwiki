@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -11,10 +11,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="javascript/building.js"></script>
-  <title>Building</title>
-  <link rel="shortcut icon" type="image/png" href="images/favicon.png";>
+  <title>Alumni Pavilion - GMG Wiki</title>
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png" ;="">
 </head>
-<body>
+<body data-new-gr-c-s-check-loaded="14.990.0" data-gr-ext-installed="" cz-shortcut-listen="true">
 
   <div class="header">
     <a href="index.html"><img src="images/logo.png" alt="Eagle logo for go mean green"></a>
@@ -31,7 +31,7 @@
     <div class="modal-content">
 
       <div class="modal-header">
-        <span id="close">&times;</span>
+        <span id="close">×</span>
         <h2>Account Login (and Signup)</h2>
       </div>
 
@@ -73,7 +73,7 @@
     <li><a href="about.html">About</a></li>
     <li style="float: right;">
       <div class="search-container">
-        <form action="/search_page.php" action="get">
+        <form action="/search_page.php">
           <input type="text" placeholder="Search building..." name="search">
           <button type="submit"><i class="fa fa-search"></i></button>
         </form>
@@ -85,26 +85,41 @@
   <div class="dual-column">
     <div class="left-column">
       <div class="container">
-        <h1 id="building-name"></h1>
-        <p id="desc"></p>
+        <h1 id="building-name">Alumni Pavilion</h1>
+        <p id="desc">Located just outside of Apogee Stadium, the Alumni Pavilion is a pre-game meeting spot for UNT's Alumni Association members and their guests. This building was built by the same people who built Apogee Stadium and has a capacity for 150 persons inside.</p>
         <div class="buttons">
           <button id="like-button"><i class="fa fa-heart-o"></i></button>
         </div>
       </div>
       <div class="container">
-        <h1 id="images-name">Images of </h1>
+        <h1 id="images-name">Images of Alumni Pavilion</h1>
         <div class="image-container">
-          <img src="" alt="" id="img1">
-          <img src="" alt="" id="img2">
-          <img src="" alt="" id="img3">
-          <iframe src="" allowfullscreen="" loading="lazy" id="google-map"></iframe>
+          <img src="images/alumnipavilion1.jpg" alt="Picture of Alumni Pavilion" id="img1">
+          <img src="images/alumnipavilion2.jpg" alt="Picture of Alumni Pavilion" id="img2">
+          <img src="images/alumnipavilion3.jpg" alt="Picture of Alumni Pavilion" id="img3">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3338.329967871761!2d-97.160438784807!3d33.205444680844714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864dca3f44db67f1%3A0xf85b8d832e99ea22!2sUNT%20Alumni%20Pavilion%2C%202323%20I-35E%2C%20Denton%2C%20TX%2076207!5e0!3m2!1sen!2sus!4v1620103530327!5m2!1sen!2sus" allowfullscreen="" loading="lazy" id="google-map"></iframe>
         </div>
       </div>
       <div class="container">
-        <h1>Comments</h1>
+        <h1 >Comments</h1>
 
         <div class="container comments" id="comment-container">
-          <h2 style="margin: auto;">No comments yet!</h2>
+          <div class="container comments">
+            <h2 class="upper">cody:</h2>
+            <p>great view!</p>
+          </div>
+          <div class="container comments">
+            <h2 class="upper">cody:</h2>
+            <p>This building has the perfect location for game days!</p>
+          </div>
+          <div class="container comments">
+            <h2 class="upper">cody:</h2>
+            <p>I love the atmosphere.</p>
+          </div>
+          <div class="container comments">
+            <h2 class="upper">alex:</h2>
+            <p>Fun place to go to</p>
+          </div>
         </div>
 
         <div class="container comments" style="padding: 0;">
@@ -121,28 +136,29 @@
         <h1>Information</h1>
         <div style="width: 90%; margin: 0 auto; text-align: left;">
           <hr style="border: 1px solid #fff">
-          <p><b>Address</b>: <span id="address"></span></p>
+          <p><b>Address</b>: <span id="address">2323 I-35E</span></p>
           <p><b>Printers</b>: <i class="fa fa-times" id="printers"></i></p>
           <p><b>Tutoring</b>: <i class="fa fa-times" id="tutoring"></i></p>
-          <p><b>Primary Use</b>: <span id="prim-use"></span></p>
-          <p><b>Academic Department</b>: <span id="academic"></span></p>
+          <p><b>Primary Use</b>: <span id="prim-use">Meeting Place for Alumni</span></p>
+          <p><b>Academic Department</b>: <span id="academic">None</span></p>
         </div>
       </div>
       <div class="container" style="text-align: center;">
         <h1>Parking Lots Nearby</h1>
         <div style="width: 90%; margin: 0 auto; text-align: left;">
           <hr style="border: 1px solid #fff">
-          <p><b>Eagle</b>: <span id="eagle"></span></p>
-          <p><b>FS</b>: <span id="fs"></span></p>
-          <p><b>FCS</b>: <span id="fcs"></span></p>
-          <p><b>RR</b>: <span id="rr"></span></p>
-          <p><b>R</b>: <span id="r"></span></p>
-          <p><b>A-Reserved</b>: <span id="ar"></span></p>
+          <p><b>Eagle</b>: <span id="eagle">20, 71, 73, 74, 77, 83, 84</span></p>
+          <p><b>FS</b>: <span id="fs">19, 20, 70, 72, 76, 81, 83, 84</span></p>
+          <p><b>FCS</b>: <span id="fcs">80, 81, 85</span></p>
+          <p><b>RR</b>: <span id="rr"><i class="fa fa-times"></i></span></p>
+          <p><b>R</b>: <span id="r">20</span></p>
+          <p><b>A-Reserved</b>: <span id="ar"><i class="fa fa-times"></i></span></p>
         </div>
       </div>
     </div>
   </div>
 
 <script type="text/javascript" src="javascript/main.js"></script>
-</body>
-</html>
+
+
+</body></html>

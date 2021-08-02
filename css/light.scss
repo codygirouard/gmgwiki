@@ -1,0 +1,297 @@
+/* variables */
+
+$primary-color: #20a641;
+$secondary-color: #a2eaa4;
+$white: #fff;
+$light-grey: #f1f1f1;
+$dark-grey: #929292;
+$black: #000;
+$red: #ff413d;
+$yellow: #ffff5e;
+$green: #22dd22;
+
+/* defaults */
+
+::placeholder, :-ms-input-placeholder, ::-ms-input-placeholder {
+  color: $black;
+  opacity: 0.85;
+}
+
+/* header */
+
+.header {
+  background-color: $primary-color;
+  border-bottom: 2px solid rgba($secondary-color, 0.5);
+
+  div {
+    color: $white;
+  }
+}
+
+.dropdown {
+  a:hover {
+    background-color: $light-grey;
+  }
+}
+
+.dropdown-content {
+  background-color: $white;
+
+  a {
+    color: $black;
+  }
+}
+
+/* password modal */
+
+.modal {
+  .modal-content {
+    background-color: $white;
+    border: 2px solid $white;
+  }
+
+  input {
+    border: 1px solid $black;
+  }
+
+  .row {
+    > input {
+      border-bottom: 2px solid $primary-color;
+
+      &:focus {
+        border-bottom: 4px solid $primary-color;
+      }
+    }
+  }
+
+  .modal-header {
+    background-color: $primary-color;
+    color: $white;
+  }
+
+  .modal-footer {
+    background-color: $white;
+    color: $white;
+
+    button {
+      color: $white;
+      background-color: $primary-color;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}
+
+/* navigation bar */
+
+ul {
+  background-color: $primary-color;
+
+  li {
+    a {
+      color: $white;
+
+      &:hover {
+        -webkit-text-stroke-color: $white;
+      }
+
+      &::after {
+        background: $white;
+      }
+    }
+  }
+
+  .active a {
+    &::after {
+      background: $white;
+    }
+  }
+
+  button {
+    color: $white;
+
+    &:hover {
+      background: $secondary-color;
+      color: $black;
+    }
+  }
+
+  .search-container {
+    input[type="text"] {
+      color: $white;
+      background-color: rgba($white, 0.25);
+      border: 3px solid $secondary-color;
+    }
+
+    input[type="text"]:focus {
+      border: 3px solid $black;
+    }
+  }
+}
+
+/* body content */
+
+body {
+  background: $secondary-color;
+}
+
+.container {
+  color: $white;
+  background-color: rgba($primary-color, 0.85);
+  border: 1px solid $white;
+}
+
+.image-container {
+  background-color: rgba($white, 0.2);
+}
+
+.buttons {
+  button {
+    border: 1px solid $white;
+    background-color: $white;
+    color: $dark-grey;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+/* home page */
+
+#topbuilding {
+  &:hover {
+    border: 3px solid $white;
+  }
+
+  #topimg {
+    border: 1px solid $white;
+  }
+}
+
+/* list pages */
+
+.table-title {
+  &::after {
+    background: $white;
+  }
+}
+
+#buildings,
+#search-buildings {
+  a {
+    color: $white;
+  }
+
+  tr:nth-child(even) {
+    background-color: rgba($white, 0.15);
+  }
+  td {
+    a {
+      color: $white;
+
+      &::after {
+        background: $white;
+      }
+    }
+  }
+}
+
+#buildings {
+  tr {
+    &::after {
+      background: rgba($black, 0.5);
+    }
+  }
+
+  &.likes {
+    td:nth-child(2) {
+      border-left: 2px solid $white;
+    }
+  }
+}
+
+#index-div {
+  a {
+    color: $black;
+  }
+
+  button {
+    background: $white;
+    color: $black;
+    border: 1px solid $white;
+
+    &:hover a {
+      color: $white;
+    }
+
+    &::after {
+      background: rgba($primary-color, 0.5);
+    }
+  }
+}
+
+.filter-container input {
+  color: $white;
+  background-color: rgba($white, 0.25);
+  border: 3px solid $secondary-color;
+
+  &:focus {
+    border: 3px solid $black;
+  }
+}
+
+/* about page */
+
+.about {
+  a {
+    color: $primary-color;
+    background-color: $white;
+    border: 3px solid $secondary-color;
+
+    &:hover {
+      color: $white;
+      background-color: rgba($white, 0.2);
+      border: 3px solid $white;
+    }
+  }
+}
+
+/* building page */
+
+.fa-heart {
+  color: $yellow;
+  -webkit-text-stroke-color: $black;
+}
+
+.container.comments {
+  border: 1px solid $white;
+  background-color: rgba($white, 0.1);
+
+  textarea {
+    background-color: $white;
+    border: 6px solid $secondary-color;
+
+    &:focus {
+      border: 6px solid $black;
+    }
+  }
+
+  &#comment-container {
+    h2 {
+      &::after {
+        background: $white;
+      }
+    }
+  }
+
+  #submit-button {
+    color: rgba($black, 0.6);
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}

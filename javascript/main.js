@@ -157,23 +157,7 @@ $(document).ready(function(){
   if (topname.length != 0) {
     // page is index.html
 
-    $.ajax({
-      // send get request for top building
-      type: "GET",
-      url: 'php/functions.php',
-      dataType: 'json',
-      // getTopBuilding();
-      data: {function: 'getTopBuilding'},
 
-      success: function (obj, textstatus) {
-        topname.html(obj.name);
-        toplikes.html(obj.likes + ' likes!');
-        topimg.attr("src", "images/" + obj.img + "1.jpg");
-        topimg.attr("alt", "Picture of " + obj.name);
-
-        $("#topbuilding").click({id: obj.img}, topLikedClicked);
-      }
-    });
   }
 
   // if user is logged in, color in the profile pic
@@ -244,74 +228,7 @@ $(document).ready(function(){
         $("#pass-error").css("display", "none");
 
         // send post request to login
-        $.ajax({
-          type: "POST",
-          url: 'php/functions.php',
-          dataType: 'json',
-          // login(username, pass);
-          data: {function: 'login', user: username, pwd: pass},
 
-          success: function (obj, textstatus) {
-            if (obj.error) {
-              // error with login
-              if (obj.error.includes('Incorrect Password')) {
-                // incorrect password entered
-                $("#pass-error").css("display", "table-cell");
-                $("#pass-error").html("Wrong Password!");
-              }
-              else {
-                // unsuccesful attempt at creating user
-                $("#user-error").css("display", "table-cell");
-                $("#user-error").html("Sorry, could not create user!");
-              }
-            }
-            else {
-              // login/signup was successful
-              localStorage.setItem('user', username); // set current saved user
-              $("#pfp-img").css("color", "#FBFB3C"); // color in pfp image
-              if (obj.new) {
-                // new account created
-                loginbtn.html("Account Created &#10004;");
-                setTimeout(function() {
-                  modal.css("display", "none");
-                  clearLogin();
-                }, 1000);
-              }
-              else {
-                // login successful
-                loginbtn.html("Login Successful &#10004;");
-                setTimeout(function() {
-                  modal.css("display", "none");
-                  clearLogin();
-                }, 1000);
-              }
-
-              // if on building page, check if user has liked the page
-              var likeBtn = $("#like-button");
-              if (likeBtn.length != 0) {
-                const urlParams = new URLSearchParams(window.location.search);
-                const buildingName = urlParams.get('name');
-                var storedUser = localStorage.getItem('user');
-
-                // check if user liked the page
-                $.ajax({
-                  type: "GET",
-                  url: 'php/functions.php',
-                  dataType: 'json',
-                  // isLiked(user, building);
-                  data: {function: 'isLiked', user: storedUser, building: buildingName},
-
-                  success: function (obj, textstatus) {
-                    if (obj.isLiked) {
-                      // user liked this page already
-                      likeBtn.html('<i class="fa fa-heart"></i>');
-                    }
-                  }
-                });
-              }
-            }
-          }
-        });
       }
       else {
         // username not correct format

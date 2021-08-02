@@ -6,44 +6,5 @@ $(document).ready(function(){
   var links = ['afrotcbuilding', 'alumnipavilion', 'apogeestadium', 'artbuilding', 'athleticcenterbuilding', 'auditoriumenglishbuilding', 'bainhall', 'brucehall', 'businessleadershipbuilding', 'chemistrybuilding', 'chestnuthall', 'chiltonhall', 'clarkhall', 'coliseum', 'collegeinn', 'crumleyhall', 'curryhall', 'danceandtheater', 'discoveryparkbuilding', 'eaglelanding', 'eaglestudentservicescenter', 'enviornmentalsciencebuilding', 'gatewaycenter', 'generalacadmicbuilding', 'goolsbychapel', 'greeklifecenter', 'hickoryhall', 'highlandstreetparkinggarage', 'honorshall', 'hurleyadministrationbuilding', 'joegreenehall', 'kenbahnsengym', 'kerrhall', 'languagebuilding', 'legendshall', 'libraryannexbuilding', 'lifesciencescomplex', 'maplestreethall', 'marquishall', 'matthewshall', 'mcconnellhall', 'mozartsquarehall', 'murchisonperformingartscenter', 'musicbuilding', 'oakstreethall', 'physicaleducationbuilding', 'physicsbuilding', 'pohlrecreationcenter', 'radiotvfilmperformingarts', 'rawlinshall', 'sagehall', 'santafesqurehall', 'scienceresearchbuilding', 'speechhearingclinic', 'sycamorehall', 'terrillhall', 'traditionshall', 'unioncircleparkinggarage', 'universityunion', 'untfrisco', 'victoryhall', 'welcomecenter', 'westhall', 'willislibrary', 'wootenhall']
 
   // get request for each building's likes
-  $.ajax({
-      type: "GET",
-      url: 'php/functions.php',
-      dataType: 'json',
-      // getLikes();
-      data: {function: 'getLikes'},
-
-      success: function (obj, textstatus) {
-        var i, inHTML;
-
-        inHTML = "<tr><th>Building</th><th style='text-align:center;'><i class='fa fa-heart-o'></i></th></tr>";
-        for (i = 0; i < buildingArr.length; i++) {
-          // insert names into table, obj holds buildings likes (obj[buildingName] = numLikes)
-          inHTML += "<tr><td><a href='building.html?name=" + links[i] + "'>" + buildingArr[i] + "</a></td><td>" + obj[buildingArr[i]] + "</td></tr>";
-        }
-        $("#buildings").html(inHTML);
-
-        var table, rows, switching, i, x, y, shouldSwitch;
-        table = document.getElementById("buildings");
-        switching = true;
-        while (switching) {
-          // sort buildings by likes (DESC)
-          switching = false;
-          rows = table.rows;
-          for (i = 1; i < (rows.length - 1); i++) {
-            shouldSwitch = false;
-            y = rows[i].getElementsByTagName("TD")[1];
-            x = rows[i + 1].getElementsByTagName("TD")[1];
-            if (parseInt(x.innerHTML) > parseInt(y.innerHTML)) {
-              shouldSwitch = true;
-              break;
-            }
-          }
-          if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-          }
-        }
-      }
-  });
+  
 });
